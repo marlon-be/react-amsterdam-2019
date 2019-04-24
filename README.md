@@ -1,4 +1,4 @@
-# 8 best practices uit React Amsterdam 2019.
+# 8 best practices die we leerden op React Amsterdam 2019.
 
 Bij Marlon is React ons frontend framework naar keuze. Sinds enkele jaren werken we ook met React Native om quality mobile apps af te leveren aan onze klanten.  Net zoals vorig jaar trokken enkele van onze Javascript developers naar Amsterdam om hun React & React Native skills bij te schaven.
 
@@ -143,19 +143,19 @@ Meer voorbeelden kan je vinden op [https://sid.studio/refactoring](https://sid.s
 
 ## Les 3. React's kracht als design primitives.
 
-Deze les is een mix tussen 2 talks. De eerste, getiteld ["A common design language"](https://youtu.be/4KfAS3zrvX8?t=6898) door [Andrey Okonetchnikov](https://twitter.com/okonetchnikov), ging over de verschillende manieren van communicatie die we gebruiken om van concept tot design tot code te komen. Soms zijn er echter teveel manier / tools of programmeertalen die deze communicatie moeilijk maakt. De heilige graal van deze communicatie zou eigenlijk eerder gelimiteerd moeten worden, om te verzekeren dat iedereen in een team elkaar goed verstaat.
+Deze les is een mix tussen 2 talks. De eerste, getiteld ["A common design language"](https://youtu.be/4KfAS3zrvX8?t=6898) door [Andrey Okonetchnikov](https://twitter.com/okonetchnikov), ging over de verschillende manieren van communicatie die we gebruiken om van concept tot design tot code te komen. Soms zijn er echter teveel manieren / tools of programmeertalen die deze communicatie moeilijk maken. De heilige graal van deze communicatie zou soms eerder gelimiteerd moeten worden, om te verzekeren dat iedereen in een team elkaar goed verstaat.
 
-Een goed voorbeeld van zo'n limiet is volgens Andrey een "Design system". Zo'n systeem combineert regels omtrent typografie, witruimte, kleuren, enzoverder om die regels op te leggen, alsook een set van instructies mee te geven aan alle betrokken partijen. Als UI de design taal voor digitale producten is, zijn componenten de ideale fit om als woorden te gebruiken in die taal.
+Een goed voorbeeld van zo'n limiet is volgens Andrey een "Design system". Zo'n systeem combineert regels omtrent typografie, witruimte, kleuren, enzoverder om die limieten op te leggen. Verder heb je nu een set van instructies om mee te geven aan alle betrokken partijen. Als UI de design taal voor digitale producten is, zijn componenten de ideale fit om als woorden te gebruiken in die taal.
 
-Het probleem blijft echter dat designers en developers andere talen op zich spreken. Designer spreken met design tools & prototypes, waar developers praten in programmeertalen als html, css en javascript. Dit betekent echter niet dat designers daarom moeten coderen, of omgekeerd. De oplossing ligt hem eerder in de gelijkenissen te zoeken tussen de designer en developer talen. En die overlap zijn UI primitives. De allerkleinste units / atomen die een UI kunnen opbouwen.
+Het probleem blijft echter dat designers en developers andere talen op zich spreken. Designers spreken met design tools & prototypes, waar developers praten in programmeertalen als html, css en javascript. Dit betekent uiteraard niet dat designers daarom moeten programmeren, of omgekeerd. De oplossing ligt hem eerder in de gelijkenissen te zoeken tussen de talen van designers en developers. En die overlap zijn UI primitives. De allerkleinste units / atomen die een UI kunnen opbouwen.
 
-Binnen React denken we dan voor tekst aan `<Text>` jsx, containers kunnen `<View>`'s zijn, afbeeldingen als `<Image>`, knoppen als `<Button>` & iconen als `<Icon>`. De props van deze primitieve componenten zorgen dan voor de nodige variaties zoals `<Text kind="danger">` & `<Button kind="primary">`. De eindoplossing zit hem volgens Andrey in het gebruiken van zo'n React componenten in design tools. Designers ontwerpen dan als het ware met componenten als universele design taal. Developers weten op die manier direct waarover het gaat.
+Binnen React denken we qua UI primitives voor tekst bijvoorbeeld aan `<Text>` jsx; Containers kunnen `<View>`'s zijn, afbeeldingen als `<Image>`, knoppen als `<Button>` & iconen als `<Icon>`. De props van deze primitieve componenten zorgen dan voor de nodige variaties zoals `<Text kind="danger">` & `<Button kind="primary">`. De eindoplossing zit hem volgens Andrey in het gebruiken van zo'n React componenten in design tools. Designers ontwerpen dan als het ware met componenten als universele design taal, en developers weten direct waarover het gaat.
 
 ### Ontwerpen met React
 
-In de volgende talk, getiteld ["Designing with React"](https://youtu.be/4KfAS3zrvX8?t=8405), bouwde [Mark Dalgleish](https://twitter.com/markdalgleish) verder op wat Andrey vertelde over "Component driven design" en het ontwerpen in het finale medium. Hij haalde enkele react based  design tools als FramerX & React Sketch aan. Die laatste tool, ontwikkeld door AirBnB, biedt bijvoorbeeld binnen Sketch aan om met React Native primitieven & componenten aan de slag te gaan.
+In de volgende talk, getiteld ["Designing with React"](https://youtu.be/4KfAS3zrvX8?t=8405), bouwde [Mark Dalgleish](https://twitter.com/markdalgleish) verder op wat Andrey vertelde over "Component driven design" en het ontwerpen in het finale medium. Hij haalde enkele react based  design tools als FramerX & React Sketch aan. Die laatste tool, ontwikkeld door AirBnB, biedt binnen Sketch de mogelijkheid om met React Native primitieven & componenten aan de slag te gaan.
 
-Tien jaar geleden werd echter vermeden om direct met code te ontwerpen. Dit was vooral omdat code traag was. Als je een developer code liet typen op instructie van een designer die naast hun zit, zou deze snel verveeld raken. Vandaag de dag is dit echter niet zo. Code voorbeelden kunnen tegenwoordig heel snel opgezet worden met tools als Codesandbox, en ook iteratie / variatie wordt heel makkelijk dankzij features als forking. Die variaties zijn op zich dan weer makkelijk deelbaar met andere betrokken partijen.
+Tien jaar geleden werd echter vermeden om direct met code te ontwerpen. Dit was vooral omdat code traag was. Als je een developer code liet typen op instructie van een designer die naast hun zit, zou deze laatste snel verveeld raken. Vandaag de dag is dit echter niet zo. Code voorbeelden kunnen tegenwoordig heel snel opgezet worden met tools als Codesandbox, en ook iteratie / variatie wordt heel makkelijk dankzij features als forking. Die variaties zijn op zich dan weer makkelijk deelbaar met andere betrokken partijen.
 
 Hoe passen we echter diezelfde veranderingen toe op moderne design systemen? Hoe maken we component code vlugger beschikbaar voor designers, zonder eerst een resem aan libraries te moeten installeren en runnen in terminal? 
 
@@ -165,9 +165,9 @@ Het is zowel een code powered design tool als een design powered development too
 
 ## Les 4. Pitfalls en performantie met serverside rendering.
 
-Spreker [Håkon Gullord Krogh](https://www.youtube.com/watch?v=4KfAS3zrvX8&t=10991s) gaf een lightning talk over de mogelijke "Uncanny Valley" dat zich bij React server side rendered paginas voor kan doen. Eén van de voordelen van SSR React mag dan wel zijn dat de "time to first meaningful paint" sneller bereikt wordt, maar omdat de React bundle ingeladen moet zijn om interactie te voorzien, is er een timeframe waarbij zaken als buttons er wel staan, maar dus nog niet werken tot de bijkomende bundle klaar is voor gebruik. Dit kan op zich een groter probleem vormen dan langer wachten op je webpagina. Gebruikers kunnen bijv. denken dat de pagina / website defect is en afhaken.
+Spreker [Håkon Gullord Krogh](https://www.youtube.com/watch?v=4KfAS3zrvX8&t=10991s) gaf een lightning talk over de mogelijke "Uncanny Valley" dat zich bij React server side rendered paginas voor kan doen. Eén van de voordelen van SSR React mag dan wel zijn dat de "time to first meaningful paint" sneller bereikt wordt, maar omdat de React bundle ingeladen moet zijn om interactie te voorzien, is er een timeframe waarbij zaken als buttons er wel staan, maar dus nog niet werken. Dit kan een groter probleem vormen dan langer wachten op je pagina. Gebruikers kunnen bijv. denken dat de pagina / website defect is en afhaken.
 
-Een mogelijke oplossing is alvast om alles wat kan gebeuren langs de server, ook daar te laten gebeuren. Indien dit niet mogelijk is, kan code splitting per pagina er voor zorgen dat de tijd die in de "Uncanny valley" gespendeerd wordt verminderd. Maar best zorg je er ook voor dat zaken als buttons nog niet volledig interactief lijken tot die interactie effectief beschikbaar is.
+Een mogelijke oplossing is alvast om alles wat kan gebeuren aan de server kant, ook daar te laten gebeuren. Indien dit niet mogelijk is, kan code splitting per pagina er voor zorgen dat de tijd die in de "Uncanny valley" gespendeerd wordt verminderd. Maar best zorg je er voor dat buttons, etc. nog niet volledig interactief lijken tot die interacties effectief beschikbaar zijn.
 
 [David Mark Clements](https://www.youtube.com/watch?v=4KfAS3zrvX8&t=11452s) praatte dan over hoe je het server side renderen zelf kan versnellen. React SSR gebeurt uiteraard dankzij Node, wiens enige javascript thread geblokkeerd kan raken als er teveel requests / seconden zijn. Dit kan op zich voor andere problemen zorgen zoals een servercrash. Bijgevolg, hoe sneller je SSR afgehandeld wordt, hoe stabieler de server draait. Het versnellen van SSR kan volgens David gebeuren dankzij `esx`, een [tagged template literal](https://www.npmjs.com/package/esx) die tegengaat dat React de volledige object tree gaat opbouwen, wanneer we eigenlijk enkel maar de stringified html representatie van het component nodig hebben. Zo hou je de "tree" dus eigenlijk zo goed als plat ipv extreem genest in elkaar, wat een enorme performance boost kan betekenen.
 
@@ -189,7 +189,20 @@ Een mogelijke oplossing is alvast om alles wat kan gebeuren langs de server, ook
 
 [Vladimir Novick](https://twitter.com/vladimirnovick), ["Demystifying Complex Animations Creation Process in React Native"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=25644s)
 
-
 ## Les 8. Wat maakt een goeie Developer Experience?
 
-[Peggy Rayzis](https://twitter.com/peggyrayzis), ["The GraphQL developer experience"](https://youtu.be/4KfAS3zrvX8?t=25960)
+Eén van de laatste talks werd gegeven door [Peggy Rayzis](https://twitter.com/peggyrayzis) van Apollo GraphQL. Haar talk, ["The GraphQL developer experience"](https://youtu.be/4KfAS3zrvX8?t=25960), gaf een dieper inzicht in wat nu precies zorgt voor de positieve feedback van developers op het werken met GraphQL en alle tools daar rond. Voor Peggy naar Amsterdam vertrok, vroeg ze haar volgers op Twitter om op te sommen wat voor hun belangrijk is op DX vlak. Dit zijn de resultaten:
+
+- Onopdringerig: Focus op code schrijven ipv tool pleasing.
+- Voorspelbaarheid: Hints om je sneller op weg te helpen
+- Onmiddelijke feedback: Waarschuwen als iets niet goed zit
+
+Programmeurs houden van tools die problemen oplossen. Het probleem dat GraphQL bijvoorbeeld oplost is dat data ophalen in React niet altijd de beste ervaring blijkt te zijn. De GraphQL tools zoals "The GraphQL Playground" (Graphiql) en VSCode plugins als `Apollo GraphQL`, zorgen er allemaal ervoor dat zo'n instant feedback loop mogelijk wordt. Ook het feit dat GraphQL op zich een beetje gezien kan worden als een contract tussen front-end en back-end, geeft meer vertrouwen als er changes gebeuren aan gelijk welk onderdeel van de app. Live previews en GraphQL code hinting / linting brengen je op tijd op de hoogte als iets niet meer klopt.
+
+Ook bij Marlon proberen we deze tips & tricks toe te passen. Zo werken we voor onze laatste nieuwe projecten ook met GraphQL, automagische componenten documentatie dankzij Storybook, Prettier voor automatisch je code te formatteren, ... Zowel eigen tools als andere DX-tools kunnen ook telkens voorgesteld worden. In team meetings bespreken we dan die tools en wordt ook de afweging gedaan of de DX en UX nog in balans zijn. Zo trachten we de Marlon Javascript Developer Experience steeds top te houden.
+
+### Kom solliciteren en ervaar onze developer experience first-hand.
+
+Heb je zelf een passie voor JS, een oog voor goede DX en UX en reeds kennis van React of React Native? Ben je bovendien op zoek naar een nieuwe uitdaging? Wij zijn vragende partij! Kom gerust eens langs voor een babbel in ons kantoor te Gent.
+
+Meer info & vacature: [We're hiring! - Vacature JS Developer](https://www.marlon.be/nl-be/jobs/javascript-developer)

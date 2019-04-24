@@ -165,31 +165,31 @@ Het is zowel een code powered design tool als een design powered development too
 
 ## Les 4. Pitfalls en performantie met serverside rendering.
 
-Spreker [Håkon Gullord Krogh]() gaf een lightning talk over de mogelijke "Uncanny Valley" dat zich bij React server side rendered paginas voor kan doen. Eén van de voordelen van SSR React mag dan wel zijn dat de "time to first meaningful paint" sneller bereikt wordt, maar omdat de React bundle ingeladen moet zijn om interactie te voorzien, is er een timeframe waarbij zaken als buttons er wel staan, maar dus nog niet werken tot de bijkomende bundle klaar is voor gebruik. Dit kan op zich een groter probleem vormen dan langer wachten op je webpagina. Gebruikers kunnen bijv. denken dat de pagina / website defect is en afhaken.
+Spreker [Håkon Gullord Krogh](https://www.youtube.com/watch?v=4KfAS3zrvX8&t=10991s) gaf een lightning talk over de mogelijke "Uncanny Valley" dat zich bij React server side rendered paginas voor kan doen. Eén van de voordelen van SSR React mag dan wel zijn dat de "time to first meaningful paint" sneller bereikt wordt, maar omdat de React bundle ingeladen moet zijn om interactie te voorzien, is er een timeframe waarbij zaken als buttons er wel staan, maar dus nog niet werken tot de bijkomende bundle klaar is voor gebruik. Dit kan op zich een groter probleem vormen dan langer wachten op je webpagina. Gebruikers kunnen bijv. denken dat de pagina / website defect is en afhaken.
 
 Een mogelijke oplossing is alvast om alles wat kan gebeuren langs de server, ook daar te laten gebeuren. Indien dit niet mogelijk is, kan code splitting per pagina er voor zorgen dat de tijd die in de "Uncanny valley" gespendeerd wordt verminderd. Maar best zorg je er ook voor dat zaken als buttons nog niet volledig interactief lijken tot die interactie effectief beschikbaar is.
 
-[David Mark Clements]() praatte dan over hoe je het server side renderen zelf kan versnellen. React SSR gebeurt uiteraard dankzij Node, wiens enige javascript thread geblokkeerd kan raken als er teveel requests / seconden zijn. Dit kan op zich voor andere problemen zorgen zoals een servercrash. Bijgevolg, hoe sneller je SSR afgehandeld wordt, hoe stabieler de server draait. Het versnellen van SSR kan volgens David gebeuren dankzij `esx`, een [tagged template literal](https://www.npmjs.com/package/esx) die tegengaat dat React de volledige object tree gaat opbouwen, wanneer we eigenlijk enkel maar de stringified html representatie van het component nodig hebben. Zo hou je de "tree" dus eigenlijk zo goed als plat ipv extreem genest in elkaar, wat een enorme performance boost kan betekenen.
+[David Mark Clements](https://www.youtube.com/watch?v=4KfAS3zrvX8&t=11452s) praatte dan over hoe je het server side renderen zelf kan versnellen. React SSR gebeurt uiteraard dankzij Node, wiens enige javascript thread geblokkeerd kan raken als er teveel requests / seconden zijn. Dit kan op zich voor andere problemen zorgen zoals een servercrash. Bijgevolg, hoe sneller je SSR afgehandeld wordt, hoe stabieler de server draait. Het versnellen van SSR kan volgens David gebeuren dankzij `esx`, een [tagged template literal](https://www.npmjs.com/package/esx) die tegengaat dat React de volledige object tree gaat opbouwen, wanneer we eigenlijk enkel maar de stringified html representatie van het component nodig hebben. Zo hou je de "tree" dus eigenlijk zo goed als plat ipv extreem genest in elkaar, wat een enorme performance boost kan betekenen.
 
 `esx` kan voorlopig enkel gebruikt worden vanaf React versie 16.8 en Node v10. Het project staat ook nog wat in zijn kinderschoenen en wordt dus nog niet wijdgebruikt. Eens dit wel zo is, is dit dus zeker iets om te testen en eventueel te implementeren. 
 
 ## Les 5. Leer uit de fouten van anderen.
 
-[Max Stoiber](), ["Tech regrets at Spectrum"]()
+[Max Stoiber](https://mxstbr.com/), ["Tech regrets at Spectrum"](https://www.youtube.com/watch?v=4KfAS3zrvX8&t=17600s)
 
 ## Les 6. Wat niet te delen bij cross platform React & React Native
 
-[Ben Ellerby](), ["Sharing Code Between React and React-Native: What Not to Share"]()
+[Ben Ellerby](https://twitter.com/benellerby), ["Sharing Code Between React and React-Native: What Not to Share"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=6291s)
 
-(Kort ook: [Wouter van den Broek](), ["Building for a Bigger World Than Mobile"]())
+(Kort ook: [Wouter van den Broek](https://github.com/wbroek), ["Building for a Bigger World Than Mobile"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=8150s))
 
 ## Les 7. Performance & Animaties in React Native.
 
-[Anna Doubkova](), ["Practical Performance for React (Native)"]()
+[Anna Doubkova](https://twitter.com/lithinn), ["Practical Performance for React (Native)"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=2844s)
 
-[Vladimir Novick](), ["Demystifying Complex Animations Creation Process in React Native"]()
+[Vladimir Novick](https://twitter.com/vladimirnovick), ["Demystifying Complex Animations Creation Process in React Native"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=25644s)
 
 
 ## Les 8. Wat maakt een goeie Developer Experience?
 
-[Peggy Rayzis](), ["The GraphQL developer experience"]()
+[Peggy Rayzis](https://twitter.com/peggyrayzis), ["The GraphQL developer experience"](https://youtu.be/4KfAS3zrvX8?t=25960)

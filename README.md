@@ -183,19 +183,43 @@ De initiële aanzet van Spectrum was opgesteld met Create React App. Echter hadd
 
 De andere kant van het schoentje is dan weer dat bestaande oplossingen er misschien al zijn, maar dat de community size nog te klein is om de keuze te valideren. Zo kozen ze voor RethinkDB omdat deze changefeeds out of the box aanbood. Spectrum was een chat applicatie, dus voor hen betekende dit dat ze zelf geen PubSub systeem hoefden te schrijven. Diezelfde changefeeds blijken op een later stadium niet echt schaalbaar. Ze hadden veel database storingen en het debuggen ervan bleek moeilijk omdat er niet veel documentatie of mensen met dezelfde problemen waren. 
 
-De keuzes voor React Native Web en Next.js voor SSR hielden dus steek dankzij de community size en omdat ze in grotere bedrijven ook gebruikt worden. Maar hadden ze eerder naar de community size van RethinkDB gekeken, zou het Spectrum team geweten hebben dat RethinkDB net geen ideale match was. Weeg daarom altijd je doorslaggevende architecturale keuzes goed af als het om core technologiën gaat.
+De keuzes voor React Native Web en Next.js voor SSR hielden dus steek dankzij de community size. Ook het feit dat ze in grotere bedrijven ook gebruikt worden speelt een rol. Maar hadden ze eerder naar de community size van RethinkDB gekeken, zou het Spectrum team voor diezelfde redenen geweten hebben dat RethinkDB net geen ideale match was. Weeg daarom altijd je doorslaggevende architecturale keuzes goed af als het om core technologiën gaat.
 
 ## Les 6. Wat niet te delen bij cross platform React & React Native
 
-[Ben Ellerby](https://twitter.com/benellerby), ["Sharing Code Between React and React-Native: What Not to Share"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=6291s)
+[Ben Ellerby](https://twitter.com/benellerby) vertelde in zijn talk ["Sharing Code Between React and React-Native: What Not to Share"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=6291s) het verhaal dat zijn team samen met MADE.COM aflegde in het uitbreiden van hun website om ook adhv React Native een mobile app te voorzien voor iOS en Android. Ben gaat in zijn talk vooral in op de verschillende types code die er bestaan in een project en welke deelbaar of net niet.
 
-(Kort ook: [Wouter van den Broek](https://github.com/wbroek), ["Building for a Bigger World Than Mobile"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=8150s))
+De conclusies voor het delen van de verschillende types code werden als volgt opgedeeld:
+
+De views met de render methodes van een component zijn de grootste boosdoener in shared platform codebases. Zo zijn zaken als een `<div>` niet hetzelfde als een `<View/>` en staat ook een `<ul/>` niet 1 op 1 gelijk met React Natives `<FlatList/>`. React en React Native hebben verschillende render omgevingen. Er zijn echter projecten als `React Native Web` (Twitter), `ReactXP` (Microsoft) en `styled-components/universal` die UI code delen makkelijker willen maken. Elk heeft echter zijn minpunten. Zo zijn deze oplossingen niet altijd even intuïtief of ideaal om serverside te renderen.
+
+Na veel Proof of Concepts heeft Bens team dan ook beslist om dit gedeelte toch apart te houden. Web, mobile en desktop apps hebben dus zeker elk hun eigen specifieke design patronen en user experiences die gerespecteerd moeten worden.
+
+Controllers files, het deel van de componenten met de business logica kunnen het makkelijkst gedeeld worden. Hier is het echter heel belangrijk dat je dit goed test op beide platformen. Als een gebruiker maximum maar 20 producten in een winkel mandje mag stoppen voor infrastructuur redenen bijvoorbeeld moet je zeker zijn dat deze limieten op beide platformen aanwezig zijn. Hou er wel rekening mee dat er Platform specifieke API's bestaan. Deze hoeven dus niet perse op dezelfde manieren te werken. In die gevallen waar je toch je controllers op zou splitsen kan een groot deel van logica wel nog steeds gedeeld worden aan de hand van Higher Order Components of de iets nieuwere React Hooks.
+
+Configuratie files, met bijvoorbeeld constanten, vertalingen, api endpoints, kunnen meestal ook zonder problemen gedeeld worden tussen React & React Native projecten. Hoe de api zelf opgeroepen wordt, of dit nu aan de hand van GraphQL of REST gebeurt, doet er doorgaans ook weinig toe. Beide soorten code hebben op zich niks platform specifieks en zijn daarom ook makkelijkst deelbaar.
+
+De volgende spreker, [Wouter van den Broek](https://github.com/wbroek), nam met ["Building for a Bigger World Than Mobile"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=8150s) het concept van code delen per platform een stapje verder. In zijn talk verkenden we hoe React Native ook voor Desktop apps kan gebruikt worden. Ook hier werden `React Native Web` en `ReactXP` aangehaald als mogelijke oplossingen. Wie specifieke Windows of MacOS API's wil gebruiken heeft echter pech, want de React Native packages hiervoor staan nog niet bepaald op punt. Uiteindelijk blijft het dus een goed idee om voor Desktop nog steeds gewoon te grijpen naar `React` of `React Native Web` in combinatie met Electron.
+
+Tot conclusie kunnen we dus vooral zeggen dat er veel aandacht naar code sharing gaat binnen de React community, maar dat niet alles deelbaar is... Wat een ideale productieklare oplossing betreft zal ook voorlopig nog op zich laten wachten. Wie naast het web, ios en Android, ook windows specifiek wil targeten heeft misschien meer geluk. Zo kondigde Microsoft recent [React Native for Windows](https://techcrunch.com/2019/05/06/microsoft-launches-react-native-for-windows/) aan.
 
 ## Les 7. Performance & Animaties in React Native.
 
-[Anna Doubkova](https://twitter.com/lithinn), ["Practical Performance for React (Native)"](https://www.youtube.com/watch?v=jTdi9oTM22c)
+Het gewoonlijke antwoord op problemen met performantie in React (Native) apps is shouldComponentUpdate. [Anna Doubkova](https://twitter.com/lithinn) vertelde ons in haar talk ["Practical Performance for React (Native)"](https://www.youtube.com/watch?v=jTdi9oTM22c) waarom shouldComponentUpdate net voor meer problemen kan zorgen en wat je wel kan doen om je performantie te verbeteren.
 
-[Vladimir Novick](https://twitter.com/vladimirnovick), ["Demystifying Complex Animations Creation Process in React Native"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=25644s)
+Voor je aan app performantie kan sleutelen, moet je echter wel wel weten wat er aan de hand is. Zo is het belangrijk dat je weet dat in react Native de Native UI thread bij interactie een event doorstuurt naar de JS thread waar React overneemt. Het proces gaat meestal als volgt:
+
+1. UI: Interactie
+2. JS: React Render functies
+3. JS: Opbouwen van nieuwe Virtual Dom
+4. JS: Vergelijken oude & nieuwe tree
+5. UI: Layout updates 
+
+Er zijn dus een hele boel stappen die zich voordoen voor de gebruiker effectief een visuele verandering te zien krijgt. Ondanks dat Anna's team initieel dacht 
+
+Chrome profiler.
+
+De React Native app die Anna als voorbeeld gebruikte had zo'n 100 reducers. 
 
 ## Les 8. Wat maakt een goeie Developer Experience?
 

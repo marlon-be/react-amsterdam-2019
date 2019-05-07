@@ -1,10 +1,10 @@
-# 8 best practices die we leerden op React Amsterdam 2019.
+# 8 tips en tricks die we leerden op React Amsterdam 2019.
 
 Bij Marlon is React ons frontend framework naar keuze. Sinds enkele jaren werken we ook met React Native om quality mobile apps af te leveren aan onze klanten.  Net zoals vorig jaar trokken enkele van onze Javascript developers naar Amsterdam om hun React & React Native skills bij te schaven.
 
 In dit artikel leggen Thorr, Daniel & Nico in 8 puntjes uit wat ze precies bijgeleerd hebben in het React ecosysteem en waarom het voor ons en onze klanten van belang is.
 
-## Les 1. Begrijp de abstracties die je dagelijks gebruikt.
+## Tip 1. Begrijp de abstracties die je dagelijks gebruikt.
 
 In de eerste talk, getiteld ["Requisite React"](https://www.youtube.com/watch?v=tO8qHlr6Wqg), haalde [Kent C. Dodds](kentcdodds.com) aan hoe je een pak beter kan worden in het gebruiken van een tool of framework (in dit geval React) door een beter inzicht te krijgen in wat er precies voor jou geabstrageerd wordt.
 
@@ -57,7 +57,7 @@ Bij Marlon streven we er naar om indien mogelijk altijd zelf een utility te schr
 
 Het resultaat? Code die zo veel mogelijk in eigen handen is en geschreven of gebruikt wordt door mensen met verstand van zaken. Developers die bijvoorbeeld makkelijker een eigen abstractielaag kunnen bedenken. Dankzij Kent's talk weten we dat we op deze manier goed bezig zijn en dit dus enkel maar moeten aanmoedigen.
 
-## Les 2. Refactor waar nodig.
+## Tip 2. Refactor waar nodig.
 
  In de opeenvolgende talk van [Siddharth Kshetrapal](), getiteld ["Refactoring React"](https://www.youtube.com/watch?v=2Dw8gA60d_k), leerden we hoe we "code smell" konden vermijden in React. Hoe Sid het uitlegde, betekent code smell niet persé dat er iets fout is met je React code, maar dat het lijkt alsof het wel zo kan zijn. Code smell kan op verschillende vlakken voorkomen.
 
@@ -141,7 +141,7 @@ Om te vermijden dat deze blogpost één grote wall of text & code wordt echter, 
 
 Meer voorbeelden kan je vinden op [https://sid.studio/refactoring](https://sid.studio/refactoring).
 
-## Les 3. React's kracht als design primitives.
+## Tip 3. React's kracht als design primitives.
 
 Deze les is een mix tussen 2 talks. De eerste, getiteld ["A common design language"](https://www.youtube.com/watch?v=3ggoo6AH8Uo) door [Andrey Okonetchnikov](https://twitter.com/okonetchnikov), ging over de verschillende manieren van communicatie die we gebruiken om van concept tot design tot code te komen. Soms zijn er echter teveel manieren / tools of programmeertalen die deze communicatie moeilijk maken. De heilige graal van deze communicatie zou soms eerder gelimiteerd moeten worden, om te verzekeren dat iedereen in een team elkaar goed verstaat.
 
@@ -163,7 +163,7 @@ Seek, het bedrijf waar Mark voor werkt heeft met `Playroom` zelf ook zo'n React 
 
 Het is zowel een code powered design tool als een design powered development tool. Belangrijker is dat het een formaat met zich meebrengt dat heel uitnodigend is voor zowel developers als non developers. Iets wat niet altijd even makkelijk is.
 
-## Les 4. Pitfalls en performantie met serverside rendering.
+## Tip 4. Vermijd pitfalls en performance problemen met serverside rendering.
 
 Spreker [Håkon Gullord Krogh](https://www.youtube.com/watch?v=4KfAS3zrvX8&t=10991s) gaf een lightning talk over de mogelijke "Uncanny Valley" dat zich bij React server side rendered paginas voor kan doen. Eén van de voordelen van SSR React mag dan wel zijn dat de "time to first meaningful paint" sneller bereikt wordt, maar omdat de React bundle ingeladen moet zijn om interactie te voorzien, is er een timeframe waarbij zaken als buttons er wel staan, maar dus nog niet werken. Dit kan een groter probleem vormen dan langer wachten op je pagina. Gebruikers kunnen bijv. denken dat de pagina / website defect is en afhaken.
 
@@ -173,7 +173,7 @@ Een mogelijke oplossing is alvast om alles wat kan gebeuren aan de server kant, 
 
 `esx` kan voorlopig enkel gebruikt worden vanaf React versie 16.8 en Node v10. Het project staat ook nog wat in zijn kinderschoenen en wordt dus nog niet wijdgebruikt. Eens dit wel zo is, is dit dus zeker iets om te testen en eventueel te implementeren. 
 
-## Les 5. Leer uit de fouten van anderen.
+## Tip 5. Leer uit de fouten van anderen.
 
 Spreker [Max Stoiber](https://mxstbr.com/) heeft op vrij jonge leeftijd al een interessant traject afgelegd in de React, JS en Open Source wereld. Zo was hij de core contributor van het veelgebruikte `styled-components` en verkocht hij recent zijn laatste startup aan Github. Maar desondanks is niet alles altijd van een leien dakje gelopen. De titel van zijn talk, ["Tech regrets at Spectrum"](https://www.youtube.com/watch?v=4KfAS3zrvX8&t=17600s), is dan ook niet geheel onverwacht. Max vertelde ons het verhaal van de initiële architecturale keuzes bij Spectrum, wat fout liep en welke lessen hij en zijn team daar uit geleerd hebben.
 
@@ -185,7 +185,7 @@ De andere kant van het schoentje is dan weer dat bestaande oplossingen er missch
 
 De keuzes voor React Native Web en Next.js voor SSR hielden dus steek dankzij de community size. Ook het feit dat ze in grotere bedrijven ook gebruikt worden speelt een rol. Maar hadden ze eerder naar de community size van RethinkDB gekeken, zou het Spectrum team voor diezelfde redenen geweten hebben dat RethinkDB net geen ideale match was. Weeg daarom altijd je doorslaggevende architecturale keuzes goed af als het om core technologiën gaat.
 
-## Les 6. Wat niet te delen bij cross platform React & React Native
+## Tip 6. Weet wat niet te delen bij cross platform React & React Native apps.
 
 [Ben Ellerby](https://twitter.com/benellerby) vertelde in zijn talk ["Sharing Code Between React and React-Native: What Not to Share"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=6291s) het verhaal dat zijn team samen met MADE.COM aflegde in het uitbreiden van hun website om ook adhv React Native een mobile app te voorzien voor iOS en Android. Ben gaat in zijn talk vooral in op de verschillende types code die er bestaan in een project en welke deelbaar of net niet.
 
@@ -203,23 +203,38 @@ De volgende spreker, [Wouter van den Broek](https://github.com/wbroek), nam met 
 
 Tot conclusie kunnen we dus vooral zeggen dat er veel aandacht naar code sharing gaat binnen de React community, maar dat niet alles deelbaar is... Wat een ideale productieklare oplossing betreft zal ook voorlopig nog op zich laten wachten. Wie naast het web, ios en Android, ook windows specifiek wil targeten heeft misschien meer geluk. Zo kondigde Microsoft recent [React Native for Windows](https://techcrunch.com/2019/05/06/microsoft-launches-react-native-for-windows/) aan.
 
-## Les 7. Performance & Animaties in React Native.
+## Tip 7. Performance optimalisatie in React Native.
 
-Het gewoonlijke antwoord op problemen met performantie in React (Native) apps is shouldComponentUpdate. [Anna Doubkova](https://twitter.com/lithinn) vertelde ons in haar talk ["Practical Performance for React (Native)"](https://www.youtube.com/watch?v=jTdi9oTM22c) waarom shouldComponentUpdate net voor meer problemen kan zorgen en wat je wel kan doen om je performantie te verbeteren.
+Het gewoonlijke antwoord op problemen met performantie in React (Native) apps is shouldComponentUpdate. [Anna Doubkova](https://twitter.com/lithinn) (Hive) vertelde ons in haar talk ["Practical Performance for React (Native)"](https://www.youtube.com/watch?v=jTdi9oTM22c) waarom shouldComponentUpdate net voor meer problemen kan zorgen. Er zijn veel breed gebruikte theorieën en guidelines om performante react code te schrijven, die net ook een omgekeerd effect kunnen hebben.
 
-Voor je aan app performantie kan sleutelen, moet je echter wel wel weten wat er aan de hand is. Zo is het belangrijk dat je weet dat in react Native de Native UI thread bij interactie een event doorstuurt naar de JS thread waar React overneemt. Het proces gaat meestal als volgt:
+De React Native app die Anna als voorbeeld gebruikte had zo'n 100 reducers voor data management en kampte met problemen als trage opstart en time to interaction, alsook bibberende animaties en lang moeten wachten op antwoord van user interactie. Het grootste probleem dat Anna's team wou aanpakken was de trage user interaction.
 
-1. UI: Interactie
-2. JS: React Render functies
-3. JS: Opbouwen van nieuwe Virtual Dom
-4. JS: Vergelijken oude & nieuwe tree
-5. UI: Layout updates 
+Voor je aan app performantie kan sleutelen, moet je echter wel wel weten wat er aan de hand is. Zo is het belangrijk dat je weet dat in react Native de Native UI thread bij interactie een event doorstuurt naar de JS thread waar React overneemt. Het interactie proces gaat meestal als volgt:
 
-Er zijn dus een hele boel stappen die zich voordoen voor de gebruiker effectief een visuele verandering te zien krijgt. Ondanks dat Anna's team initieel dacht 
+1. Native / UI thread: Interactie opvangen en doorsturen via bridge naar js thread
+2. Javascript thread: React render functie runt
+3. Javascript thread: React bouwt een nieuwe vdom tree op op basis van state / prop changes
+4. Javascript thread: React vergelijkt oude & nieuwe virtual dom trees (reconciling)
+5. Native / UI thread: Update layout op basis van nieuwe tree
 
-Chrome profiler.
+Er zijn dus een hele boel stappen die zich voordoen voor de gebruiker effectief een visuele verandering te zien krijgt. Ondanks dat Anna's team initieel dacht dat het probleem bij de UI / Native thread lag, bleek dit uiteindelijk niet het geval. Het js gedeelte handelt de meeste stappen af en de problemen en mogelijke oplossingen doen zich dus vaakst hier ook voor. Als je maar 1 keer per minuut de state moet updaten is dit geen probleem uiteraard, maar eens je frequent al deze stappen moet doorlopen is wanneer problemen zich beginnen voordoen. 
 
-De React Native app die Anna als voorbeeld gebruikte had zo'n 100 reducers. 
+Bij Hive wisten ze dat het grootste probleem lag aan het te frequent updaten van UI views. De meest impactvolle oplossing bleek om geen anonieme functies in jsx te gebruiken. Een voorbeeld:
+
+```javascript
+const Component = ({ onClick }) => (<button onClick={onClick}>Click me</button>);
+// onClick functie wordt telkens de parent gerenderd wordt opnieuw gedefinieerd:
+export const Parent = () => <Component onClick={() => {}} />
+// Alle andere component waaraan onClick doorgegeven wordt, worden dus ook gererenderd...
+```
+
+Dit probleem kan je makkelijkst vermijden door je code editor hints te laten geven wanneer je dit patroon toepast. Een mogelijke oplossing is hiervoor het gebruik van de "`react/jsx-no-bind`" [eslint regel](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md) toe te passen in je eslint config. In class based React componenten schrijf je als oplossing best je functie als een methode op je klasse. In functionele component verplaats je best de functie die je doorgeeft buiten het component of kan je gebruik maken van `React.useCallback()`, `React.useMemo()` of `React.useRef()` om het herdefiniëren van props per render te vermijden.
+
+Het andere grote probleem dat ze bij Hive hadden was dat met hun honderden reducers en sagas, de manier waarop ze redux toepasten allesbehalve performant bleek. Dit kwam omdat ze voor elke low level connect de functie varianten van `mapStateToProps`, `mapDispatchToProps` en `mergeProps` gebruikten. Wat op zich betekende dat per redux state update, met 100 reducers voor elke component dat connect deze functies ook tegelijk uitgevoerd werden... Om het probleem op te lossen kozen ze ervoor om `mergeProps` volledig links te laten liggen en waar mogelijk telkens voor de object variant van `mapDispatchToProps` te kiezen. Op die manier blijven de referenties van de props telkens hetzelfde, wat extra rerenders vermijd.
+
+### Ken je tools
+
+Performance optimalisaties zijn best ook effectief meetbaar. Zowel bij Hive als bij Marlon bleek de Chrome profiler een grote hulp te zijn op dit vlak. De tool in kwestie geeft je bovendien ook een flame chart met meer inzicht in welke functies allemaal opgeroepen werden en hoeveel tijd er per stap / functie gespendeerd is. Je vind de profiler in de performance tab van de react-native debugger voor mobile of diezelfde tab in chrome developer tools voor het web.
 
 ## Les 8. Wat maakt een goeie Developer Experience?
 

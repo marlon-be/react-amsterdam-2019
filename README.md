@@ -51,7 +51,7 @@ ui = React.createElement('div', {id: 'root', children: 'Hello world'});
 ui = React.createElement('div', {id: 'root'}, 'Hello world');
 ```
 
-Een andere tip die Kent aanhaalde was dat het belangrijk is de fundamenten te verstaan. Zo kan je beter afwegen of een bepaalde abstractie echt een meerwaarde biedt of niet. JQuery heeft bijvoorbeeld tegenwoordig ook weinig nut sinds de meeste features toch reeds door alle browser in vanilla Javascript ondersteund worden. Ook heeft het geen nut om Lodash / Underscore toe te voegen als je maar 1 of 2 functies ervan gebruikt.
+Een andere tip die Kent aanhaalde was dat het belangrijk is de fundamenten te verstaan. Zo kan je beter afwegen of een bepaalde abstractie echt een meerwaarde biedt of niet. JQuery heeft bijvoorbeeld tegenwoordig ook weinig nut sinds de meeste features toch reeds door alle browsers in vanilla js ondersteund worden. Ook heeft het geen nut om Lodash / Underscore toe te voegen als je maar 1 of 2 functies ervan gebruikt.
 
 Bij Marlon streven we er naar om indien mogelijk altijd zelf een utility te schrijven in plaats van een npm package te downloaden en die te gebruiken. Dat is ook hoe we als team en bedrijf beter worden in Javascript. Er zijn uiteraard gevallen waar dit niet evident is (Hier komen we ook later op terug in punt 5). In die gevallen krijgen we ook tijd om die abstractie verder te bestuderen. Een bezoek aan een React conferentie bijvoorbeeld.
 
@@ -130,7 +130,7 @@ Daarbuiten werd vooral aangehaald dat veel van de ietwat hacky code smells tegen
 Om te vermijden dat deze blogpost één grote wall of text & code wordt echter, hebben we al Sid's React refactoring tips hier voor je verzameld:
 
 1. Vermijd lokale state wanneer je zaken uit props kan halen.
-2. [Benoem je functies naar gedrag opv interactie, maar hou het intuïtief.](https://sid.studio/post/name-behaviors-not-interactions/)
+2. [Benoem je functies naar gedrag ipv interactie, maar hou het intuïtief.](https://sid.studio/post/name-behaviors-not-interactions/)
 3. Pas op met "Feature Envy".
 4. [Rangschikking bij het doorgeven van props maakt een verschil.](https://sid.studio/post/order-of-props/)
 5. Maak een keuze tussen `controlled` & `unconrolled` inputs
@@ -141,7 +141,7 @@ Om te vermijden dat deze blogpost één grote wall of text & code wordt echter, 
 
 Meer voorbeelden kan je vinden op [https://sid.studio/refactoring](https://sid.studio/refactoring).
 
-## Tip 3. React's kracht als design primitives.
+## Tip 3. Gebruik React als design primitives.
 
 Deze les is een mix tussen 2 talks. De eerste, getiteld ["A common design language"](https://www.youtube.com/watch?v=3ggoo6AH8Uo) door [Andrey Okonetchnikov](https://twitter.com/okonetchnikov), ging over de verschillende manieren van communicatie die we gebruiken om van concept tot design tot code te komen. Soms zijn er echter teveel manieren / tools of programmeertalen die deze communicatie moeilijk maken. De heilige graal van deze communicatie zou soms eerder gelimiteerd moeten worden, om te verzekeren dat iedereen in een team elkaar goed verstaat.
 
@@ -161,7 +161,7 @@ Hoe passen we echter diezelfde veranderingen toe op moderne design systemen? Hoe
 
 Seek, het bedrijf waar Mark voor werkt heeft met `Playroom` zelf ook zo'n React design tool ontworpen. De tool ziet er mischien uit als Sketch, maar de focus van Playroom ligt hem op jsx. Naast je preview van je design, zie je in een apart paneel ook live de code die het ontwerp opbouwt. Design kan binnen Playroom dus ook volledig in code gedaan worden binnen datzelfde paneel.
 
-Het is zowel een code powered design tool als een design powered development tool. Belangrijker is dat het een formaat met zich meebrengt dat heel uitnodigend is voor zowel developers als non developers. Iets wat niet altijd even makkelijk is.
+Het einddoel is zowel een code powered design tool als een design powered development tool. Belangrijker is dat het een formaat met zich meebrengt dat heel uitnodigend is voor zowel developers als non developers. Iets wat niet altijd even makkelijk is.
 
 ## Tip 4. Vermijd pitfalls en performance problemen met serverside rendering.
 
@@ -187,7 +187,7 @@ De keuzes voor React Native Web en Next.js voor SSR hielden dus steek dankzij de
 
 ## Tip 6. Weet wat niet te delen bij cross platform React & React Native apps.
 
-[Ben Ellerby](https://twitter.com/benellerby) vertelde in zijn talk ["Sharing Code Between React and React-Native: What Not to Share"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=6291s) het verhaal dat zijn team samen met MADE.COM aflegde in het uitbreiden van hun website om ook adhv React Native een mobile app te voorzien voor iOS en Android. Ben gaat in zijn talk vooral in op de verschillende types code die er bestaan in een project en welke deelbaar of net niet.
+[Ben Ellerby](https://twitter.com/benellerby) vertelde in zijn talk ["Sharing Code Between React and React-Native: What Not to Share"](https://www.youtube.com/watch?v=NCLkLCvpwm4&t=6291s) het verhaal dat zijn team samen met MADE.COM aflegde in het uitbreiden van hun website om ook adhv React Native een mobile app te voorzien voor iOS en Android. Ben gaat in zijn talk vooral in op de verschillende types code die er bestaan in een project en welke deelbaar zijn of net niet.
 
 De conclusies voor het delen van de verschillende types code werden als volgt opgedeeld:
 
@@ -195,7 +195,7 @@ De views met de render methodes van een component zijn de grootste boosdoener in
 
 Na veel Proof of Concepts heeft Bens team dan ook beslist om dit gedeelte toch apart te houden. Web, mobile en desktop apps hebben dus zeker elk hun eigen specifieke design patronen en user experiences die gerespecteerd moeten worden.
 
-Controllers files, het deel van de componenten met de business logica kunnen het makkelijkst gedeeld worden. Hier is het echter heel belangrijk dat je dit goed test op beide platformen. Als een gebruiker maximum maar 20 producten in een winkel mandje mag stoppen voor infrastructuur redenen bijvoorbeeld moet je zeker zijn dat deze limieten op beide platformen aanwezig zijn. Hou er wel rekening mee dat er Platform specifieke API's bestaan. Deze hoeven dus niet perse op dezelfde manieren te werken. In die gevallen waar je toch je controllers op zou splitsen kan een groot deel van logica wel nog steeds gedeeld worden aan de hand van Higher Order Components of de iets nieuwere React Hooks.
+Controller files, het deel van de componenten met de business logica kunnen het makkelijkst gedeeld worden. Hier is het echter heel belangrijk dat je dit goed test op beide platformen. Als een gebruiker maximum maar 20 producten in een winkelmandje mag stoppen (voor infrastructuur redenen bv) moet je zeker zijn dat deze limieten op beide platformen aanwezig zijn. Hou er wel rekening mee dat er Platform specifieke API's bestaan. Deze hoeven dus niet perse op dezelfde manieren te werken. In die gevallen waar je toch je controllers op zou splitsen kan een groot deel van logica wel nog steeds gedeeld worden aan de hand van Higher Order Components of de iets nieuwere React Hooks.
 
 Configuratie files, met bijvoorbeeld constanten, vertalingen, api endpoints, kunnen meestal ook zonder problemen gedeeld worden tussen React & React Native projecten. Hoe de api zelf opgeroepen wordt, of dit nu aan de hand van GraphQL of REST gebeurt, doet er doorgaans ook weinig toe. Beide soorten code hebben op zich niks platform specifieks en zijn daarom ook makkelijkst deelbaar.
 
@@ -228,9 +228,9 @@ export const Parent = () => <Component onClick={() => {}} />
 // Alle andere component waaraan onClick doorgegeven wordt, worden dus ook gererenderd...
 ```
 
-Dit probleem kan je makkelijkst vermijden door je code editor hints te laten geven wanneer je dit patroon toepast. Een mogelijke oplossing is hiervoor het gebruik van de "`react/jsx-no-bind`" [eslint regel](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md) toe te passen in je eslint config. In class based React componenten schrijf je als oplossing best je functie als een methode op je klasse. In functionele component verplaats je best de functie die je doorgeeft buiten het component of kan je gebruik maken van `React.useCallback()`, `React.useMemo()` of `React.useRef()` om het herdefiniëren van props per render te vermijden.
+Dit probleem kan je makkelijkst vermijden door je code editor hints te laten geven wanneer je dit patroon toepast. Een mogelijke oplossing is hiervoor het gebruik van de "`react/jsx-no-bind`" [eslint regel](https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-no-bind.md) toe te passen in je eslint config. In class based React componenten schrijf je als oplossing best je functie als een methode op je klasse. In functionele componenten verplaats je best de functie die je doorgeeft buiten het component of kan je gebruik maken van `React.useCallback()`, `React.useMemo()` of `React.useRef()` om het herdefiniëren van props per render te vermijden.
 
-Het andere grote probleem dat ze bij Hive hadden was dat met hun honderden reducers en sagas, de manier waarop ze redux toepasten allesbehalve performant bleek. Dit kwam omdat ze voor elke low level connect de functie varianten van `mapStateToProps`, `mapDispatchToProps` en `mergeProps` gebruikten. Wat op zich betekende dat per redux state update, met 100 reducers voor elke component dat connect deze functies ook tegelijk uitgevoerd werden... Om het probleem op te lossen kozen ze ervoor om `mergeProps` volledig links te laten liggen en waar mogelijk telkens voor de object variant van `mapDispatchToProps` te kiezen. Op die manier blijven de referenties van de props telkens hetzelfde, wat extra rerenders vermijd.
+Het andere grote probleem dat ze bij Hive hadden was dat met hun honderden reducers en sagas, de manier waarop ze redux toepasten allesbehalve performant bleek. Dit kwam omdat ze voor elke low level connect de functie varianten van `mapStateToProps`, `mapDispatchToProps` en `mergeProps` gebruikten. Wat op zich betekende dat per redux state update, voor elk component dat connect, deze functies ook tegelijkertijd uitgevoerd werden... Om het probleem op te lossen kozen ze ervoor om `mergeProps` volledig links te laten liggen en waar mogelijk telkens voor de object variant van `mapDispatchToProps` te kiezen. Op die manier blijven de referenties van de props telkens hetzelfde, wat extra rerenders vermijd.
 
 ### Ken je tools
 
@@ -246,7 +246,7 @@ Eén van de laatste talks werd gegeven door [Peggy Rayzis](https://twitter.com/p
 
 Programmeurs houden van tools die problemen oplossen. Het probleem dat GraphQL oplost is dat data ophalen in React niet altijd de beste ervaring blijkt te zijn. De GraphQL tools zoals "The GraphQL Playground" (Graphiql) en VSCode plugins als `Apollo GraphQL`, zorgen er allemaal ervoor dat zo'n instant feedback loop mogelijk wordt. Ook het feit dat GraphQL op zich een beetje gezien kan worden als een contract tussen front-end en back-end, geeft meer vertrouwen als er changes gebeuren aan gelijk welk onderdeel van de app. Live previews en GraphQL code hinting / linting brengen je op tijd op de hoogte als iets niet meer klopt.
 
-Ook bij Marlon proberen we deze tips & tricks toe te passen. Zo werken we voor sommige van onze laatste nieuwe projecten ook met GraphQL, automagisch gegenereerd component documentatie dankzij Storybook, Prettier voor automatisch je code te formatteren, ... Zowel eigen tools als andere DX-tools kunnen telkens voorgesteld worden. In team meetings bespreken we die tools en wordt ook de afweging gedaan of de DX en UX nog in balans zijn. Zo trachten we de Marlon Javascript Developer Experience steeds top te houden.
+Ook bij Marlon proberen we deze tips & tricks toe te passen. Zo werken we voor sommige van onze laatste nieuwe projecten ook met GraphQL, automagisch gegenereerde component documentatie dankzij Storybook, Prettier voor code formatting, ... Zowel eigen tools als andere DX-tools kunnen telkens voorgesteld worden. In team meetings bespreken we die tools en wordt ook de afweging gedaan of de DX en UX nog in balans zijn. Zo trachten we de Marlon Javascript Developer Experience steeds top te houden.
 
 ### Kom solliciteren en ervaar onze developer experience first-hand.
 

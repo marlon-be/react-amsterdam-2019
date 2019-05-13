@@ -111,8 +111,11 @@ const Form = (props) => {
     ...htmlAttributes, // Alle andere optionele attributes
   } = props;
   
-  // Ken className prop pas toe na spreiden van de htmlAttributes om overschrijving te vermijden.
-  // Uiteindelijke className bestaat nu uit de standaard klasse & optionele extra klasses.
+  // Ken className prop pas toe na spreiden van de
+  // htmlAttributes om overschrijving te vermijden.
+
+  // Uiteindelijke className bestaat nu uit 
+  // de standaard klasse & optionele extra klasses.
   return (
     <form
       {...htmlAttributes}

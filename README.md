@@ -12,7 +12,7 @@ Er zijn verschillende manieren om dit te doen. Zo kan je gemakkelijk een kijkje 
 
 ```javascript
 // JSX definitie
-const jobs = <a href='https://www.marlon.be/nl-be/jobs/javascript-developer'>We're hiring!</a>;
+const jobs = <a href="https://www.marlon.be/nl-be/jobs/javascript-developer">We're hiring!</a>;
 
 // Vertaald door Babel:
 var jobs = React.createElement(
